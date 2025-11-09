@@ -24,7 +24,6 @@ def get_file_diff(file_path):
         except:
             old_content = []
 
-    # ✅ Convert to absolute path based on repo root
     abs_path = os.path.join(repo.working_tree_dir, file_path)
 
     if not os.path.exists(abs_path):

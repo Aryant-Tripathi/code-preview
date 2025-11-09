@@ -4,16 +4,24 @@ from rich.console import Console
 
 from code_preview.git_utils import get_changed_files, get_file_diff
 from code_preview.diff_renderer import render_diff
+from code_preview.file_utils.py import  should_ignore
 
 console = Console()
 
 def main():
-    parser = argparse.ArgumentParser(description="Preview uncommitted code changes with syntax highlighting")
-    parser.add_argument("path", nargs="?", default=".", help="Directory or file to preview (default: current directory)")
+    parser = argparse.ArgumentParser(
+        description="Preview uncommitted code changes with syntax highlighting"
+    )
+
+    parser.add_argument(
+        "path", nargs="?", default=".", help="Directory or file to preview (default: current directory)"
+    )
+
     args = parser.parse_args()
 
     repo_path = os.path.abspath(args.path)
     changed_files = get_changed_files(repo_path)
+    changed_files = [f for f in changed_files if not should_ignore(f)]
 
     if not changed_files:
         console.print("[green]No uncommitted changes found![/green]")
