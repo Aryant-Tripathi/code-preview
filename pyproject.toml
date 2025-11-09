@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "code-preview"
+version = "0.1.2"
+description = "A universal CLI tool to preview uncommitted code changes with rich syntax highlighting — before you commit them."
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.8"
+license = "Apache-2.0"
+keywords = ["git", "diff", "cli", "developer-tools", "code", "preview", "terminal"]
+authors = [
+    { name = "Aryant Tripathi", email = "aryanttripathi@gmail.com" }
+]
+
+# Your runtime dependencies
+dependencies = [
+    "rich>=13.0.0",
+    "gitpython>=3.1.30"
+]
+
+# CLI entrypoint
+[project.scripts]
+code-preview = "code_preview.cli:main"
+
+# URLs displayed on PyPI (shown in right sidebar)
+[project.urls]
+Homepage = "https://github.com/Aryant-Tripathi/code-preview"
+Repository = "https://github.com/Aryant-Tripathi/code-preview"
+Issues = "https://github.com/Aryant-Tripathi/code-preview/issues"
+Documentation = "https://github.com/Aryant-Tripathi/code-preview#readme"
+
+# Tell setuptools where your actual source code lives
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+[tool.setuptools.packages.find]
+where = ["src"]

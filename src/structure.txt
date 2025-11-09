@@ -1,0 +1,11 @@
+code-preview/
+├── src/
+│   └── code_preview/
+│       ├── __init__.py
+│       ├── cli.py
+│       ├── git_utils.py
+│       ├── diff_renderer.py
+│       └── file_utils.py
+├── pyproject.toml
+├── setup.cfg
+└── venv/
