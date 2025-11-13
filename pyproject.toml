@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "code-preview"
-version = "0.1.2"
+version = "1.0.0"
 description = "A universal CLI tool to preview uncommitted code changes with rich syntax highlighting — before you commit them."
 readme = { file = "README.md", content-type = "text/markdown" }
 requires-python = ">=3.8"
@@ -35,6 +35,8 @@ Documentation = "https://github.com/Aryant-Tripathi/code-preview#readme"
 [tool.setuptools]
 package-dir = {"" = "src"}
 
-
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.dynamic]
+version = { attr = "code_preview.__version__" }
